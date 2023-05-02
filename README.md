@@ -1,5 +1,5 @@
 
-## ATM/Single Stock/Single Week
+## ATM/Single Ticker/Single Week
 
 ```python
 #important : We Are Fetching Current Month Data , Adjust Expiry according to yout need
@@ -94,7 +94,7 @@ print(atm(df_dict['AAPL'],168.32))
 
 ```
 
-# ATM/Single Stock/Single Month/All Weeks
+# ATM/Single Ticker/Single Month/All Weeks
 
 ```python
 from ibapi.client import EClient
@@ -189,3 +189,5 @@ for reqid in id_list:
 
 
 ```
+
+## ATM/Multi Tickers/Single Month/All Weekly
