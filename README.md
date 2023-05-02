@@ -1,10 +1,7 @@
-# IB-BROKER-OPTION
 
-
-## Atm Finding For Single Stock
+## Atm For Single Stock/Single Expiry
 
 ```python
-
 #important : We Are Fetching Current Month Data , Adjust Expiry according to yout need
 
 
@@ -15,7 +12,6 @@ import threading
 import time
 import pandas as pd
 
-# tickers = ["INTC","AMZN","MSFT"]
 tickers = ["AAPL"]
 
 class TradingApp(EWrapper, EClient):
@@ -54,7 +50,7 @@ time.sleep(1) # some latency added to ensure that the connection is established
 
 contract_event = threading.Event()
 
-def usTechOpt(symbol,sec_type="OPT",currency="USD",exchange="BOX"):
+def contractOpt(symbol,sec_type="OPT",currency="USD",exchange="BOX"):
     contract = Contract()
     contract.symbol = symbol
     contract.secType = sec_type
@@ -67,7 +63,7 @@ def usTechOpt(symbol,sec_type="OPT",currency="USD",exchange="BOX"):
 
 for ticker in tickers:
     contract_event.clear() #clear the set flag for the event object
-    app.reqContractDetails(tickers.index(ticker), usTechOpt(ticker)) # EClient function to request contract details
+    app.reqContractDetails(tickers.index(ticker), contractOpt(ticker)) # EClient function to request contract details
     contract_event.wait() #waiting for the set flag of the event object
     
     
